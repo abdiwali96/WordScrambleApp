@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let people = ["Finn","abdiliwa", "lol"]
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        NavigationView{
+            List {
+                Section(header: Text("Section1")){
+                    ForEach(people, id: \.self) {
+                            Text($0)
+                        }
+                }
+                Section (header: Text("Section2")){
+                    ForEach(0 ..< 5){ num in
+                    Text("rows")
+                    }
+                }
+                Section(header: Text("Section3")){
+                    Text("row 3")
+                    Text("row 3")
+                }
+            }.listStyle(GroupedListStyle())
+        }
     }
 }
 
